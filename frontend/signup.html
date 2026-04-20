@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign Up - CrowdAura</title>
+  <link rel="stylesheet" href="login.css" />
+</head>
+<body>
+  <div class="login-container">
+    <h2>Create Your CrowdAura Account</h2>
+    <form id="signupForm">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your full name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Create a password" required />
+
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required />
+
+      <button type="submit">Sign Up</button>
+      <p class="signup-link">Already have an account? <a href="login.html">Login</a></p>
+      <p id="signupStatus" style="color: red; margin-top: 10px;"></p>
+    </form>
+
+ 
+    <div style="margin-top: 1rem; text-align: center;">
+      <a href="index.html" style="
+        display: inline-block;
+        padding: 0.5rem 1rem;
+        background-color: #f44336;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-weight: bold;
+      ">← Back to Homepage</a>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("signupForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const confirmPassword = document.getElementById("confirm-password").value;
+      const status = document.getElementById("signupStatus");
+
+     
+      status.textContent = "";
+
+      if (password !== confirmPassword) {
+        status.textContent = "Passwords do not match.";
+        return;
+      }
+
+      try {
+        const res = await fetch("http://localhost:3000/signup", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            username: email, 
+            password: password,
+            fullName: name 
+          }),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          alert(data.message);
+          window.location.href = "login.html";
+        } else {
+          status.textContent = data.message;
+        }
+      } catch (error) {
+        console.error(error);
+        status.textContent = "Server error. Please try again later.";
+      }
+    });
+  </script>
+</body>
+</html>

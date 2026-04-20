@@ -1,0 +1,106 @@
+
+body {
+  margin: 0;
+  font-family: 'Nunito', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+header {
+  background-color: #1e1e1e;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0;
+  color: #f44336;
+}
+
+nav a {
+  color: #f1f1f1;
+  margin-left: 1.5rem;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #f44336;
+}
+
+.hero {
+  text-align: center;
+  padding: 5rem 2rem;
+  background: linear-gradient(to right, #1a1a1a, #2c2c2c);
+}
+
+.hero h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.btn {
+  background-color: #f44336;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  margin-top: 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:hover {
+  background-color: #d32f2f;
+}
+
+section {
+  padding: 2rem;
+}
+
+.concerts {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.concert-card {
+  background-color: #1e1e1e;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+}
+
+.concert-card h3 {
+  color: #f44336;
+  margin-top: 0;
+}
+
+footer {
+  background-color: #1a1a1a;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #777;
+}
+a.btn {
+  display: inline-block;
+  background-color: #f44336;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  text-decoration: none; 
+  border-radius: 5px;
+  font-family: Arial, sans-serif; 
+  font-weight: bold;
+}
+
+a.btn:hover {
+  background-color: #d32f2f;
+}
